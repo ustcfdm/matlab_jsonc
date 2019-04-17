@@ -1,0 +1,14 @@
+{
+    // comments
+    "a": 1,
+
+    /* comments,
+    *
+    */
+    "b":{   // comments
+        // comments
+        "c": [1, 2, /*comments*/ 3],
+        "d": "string/*string*/string//"  /* comments 
+        */
+    },
+}
