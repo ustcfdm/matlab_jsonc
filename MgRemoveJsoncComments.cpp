@@ -20,18 +20,23 @@
 #include "rapidjson/writer.h"
 
 
-const char* MgRemoveJsoncComments(const char* inputString)
+char* MgRemoveJsoncComments(const char* inputString)
 {
 	namespace js = rapidjson;
 
 	js::Document document;
 	document.Parse<js::kParseCommentsFlag | js::kParseTrailingCommasFlag>(inputString);
 
-	js::StringBuffer outputString;
-	js::Writer<js::StringBuffer> writer(outputString);
+	js::StringBuffer output;
+	js::Writer<js::StringBuffer> writer(output);
 	document.Accept(writer);
 
-	return outputString.GetString();
+	auto len = output.GetSize();
+
+	char* outputString = (char*)malloc(len+1);
+	strcpy_s(outputString, len+1, output.GetString());
+
+	return outputString;
 }
 
 /* The gateway function */
@@ -67,7 +72,10 @@ void mexFunction(int nlhs, mxArray *plhs[],	int nrhs, const mxArray *prhs[])
 	*  and
 	*  set C-style string outputString to MATLAB mexFunction output
 	*/
-	plhs[0] = mxCreateString(MgRemoveJsoncComments(inputString));
+	outputString = MgRemoveJsoncComments(inputString);
+	plhs[0] = mxCreateString(outputString);
+
+	free(outputString);
 	mxFree(inputString);
 	return;
 }

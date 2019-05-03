@@ -12,8 +12,4 @@ jo_1 = jsondecode(js_1)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Test two, read string from a file
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-jsc_2 = fileread("test_file.jsonc");
-% remove comments
-js_2 = MgRemoveJsoncComments(jsc_2);
-% use matlab function to decode json
-jo_2 = jsondecode(js_2)
+js_2 = MgReadJsoncFile("test_file.jsonc")
