@@ -1,7 +1,10 @@
 # matlab_jsonc
-Remove comments in a json string for matlab to decode
+MgRemoveJsoncComments: Remove comments in a json string for matlab to decode.
+MgReadJsoncFile: Read and decode jsonc file.
 
-This code uses c library [rapidjson](https://github.com/Tencent/rapidjson) to remove comments and tail comma in a json string. After removing comments, matlab function *jsondecode* can be used to decode the json string.
+- This code uses c library [rapidjson](https://github.com/Tencent/rapidjson).
+- C++ style comments are supported.
+- Tail comma is supported.
 
 Example
 ```matlab
@@ -11,4 +14,9 @@ jsc = fileread("filename.jsonc");
 js = MgRemoveJsoncComments(jsc);
 % decode json string with internal function jsondecode
 jo = jsondecode(js);
+
+% directly read jsonc file
+j = MgReadJsoncFile("filename.jsonc");
 ```
+
+
