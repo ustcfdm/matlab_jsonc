@@ -17,6 +17,8 @@ jo = jsondecode(js);
 
 % directly read jsonc file
 j = MgReadJsoncFile("filename.jsonc");
-```
 
+% write struction to json file
+MgSaveToJsonFile(j, "filename2.jsonc")
+```
 
