@@ -1,6 +1,7 @@
 # matlab_jsonc
-MgRemoveJsoncComments: Remove comments in a json string for matlab to decode.
-MgReadJsoncFile: Read and decode jsonc file.
+MgRemoveJsoncComments: Remove comments in a json string for matlab to decode. \
+MgReadJsoncFile: Read and decode jsonc file. \
+MgSaveToJsonFile: Write structure to json file.
 
 - This code uses c library [rapidjson](https://github.com/Tencent/rapidjson).
 - C++ style comments are supported.
@@ -18,7 +19,7 @@ jo = jsondecode(js);
 % directly read jsonc file
 j = MgReadJsoncFile("filename.jsonc");
 
-% write struction to json file
+% write structure to json file
 MgSaveToJsonFile(j, "filename2.jsonc")
 ```
 
