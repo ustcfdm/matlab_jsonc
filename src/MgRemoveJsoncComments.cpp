@@ -54,8 +54,8 @@ void mexFunction(int nlhs, mxArray *plhs[],	int nrhs, const mxArray *prhs[])
 	if (nrhs != 1) {
 		mexErrMsgIdAndTxt("MyToolbox:MgRemoveJsoncComments:nrhs", "One inputs required.");
 	}
-	if (nlhs != 1) {
-		mexErrMsgIdAndTxt("MyToolbox:MgRemoveJsoncComments:nlhs", "One output required.");
+	if (nlhs > 1) {
+		mexErrMsgIdAndTxt("MyToolbox:MgRemoveJsoncComments:nlhs", "Too many output arguments.");
 	}
 	/* input must be a string */
 	if (!mxIsChar(prhs[0])) {
